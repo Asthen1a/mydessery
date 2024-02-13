@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="./styles.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-image: url('https://i.postimg.cc/FsGYsvwL/ssws.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header_text {
+            font-family: 'Nunito';
+            font-size: 40px;
+            font-weight: bold;
+            color: aqua;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 400px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background-color: #00FFFF;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 40px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        #noButton {
+    position: absolute;
+    right: 450px; /* Новое положение кнопки Нет по горизонтали */
+    top: 350px; /* Новое положение кнопки Нет по вертикали */
+    transition: 0.5s;
+    width: 100px; /* Фиксированная ширина кнопки */
+    height: 50px; /* Фиксированная высота кнопки */
+}
+
+
+        #yesButton {
+            position: absolute;
+            left: 450px; /* Поменял положение кнопки Да на лево */
+            top: 350px; /* Устанавливаю кнопку Да посередине вертикально */
+            width: 100px; /* Фиксированная ширина кнопки */
+            height: 50px;
+        }
+
+        .gif_container {
+            position: fixed;
+        }
+
+        .gif_container img {
+            width: 100px;
+            height: auto; 
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+ 
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Кусь, а ты меня любишь?</h1>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Да</button>
+        </div>
+    </div>
+    
+    <button class="btn" id="noButton" onmouseover="moveButton()">Нет</button>
+    
+    <div class="gif_container top-left">
+        <img src="https://i.postimg.cc/CKfWDG6j/first.gif">
+    </div>
+    
+    <div class="gif_container top-right">
+        <img src="https://i.postimg.cc/CKfWDG6j/first.gif">
+    </div>
+    
+    <div class="gif_container bottom-left">
+        <img src="https://i.postimg.cc/CKfWDG6j/first.gif">
+    </div>
+    
+    <div class="gif_container bottom-right">
+        <img src="https://i.postimg.cc/CKfWDG6j/first.gif">
+    </div>
+
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+
+        function moveButton() {
+            var noButton = document.getElementById('noButton');
+            var x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            var y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            // Ограничения для координат x и y
+            x = Math.max(0, Math.min(x, window.innerWidth - noButton.offsetWidth));
+            y = Math.max(0, Math.min(y, window.innerHeight - noButton.offsetHeight));
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
